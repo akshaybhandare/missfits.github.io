@@ -3,7 +3,7 @@ body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Default font for the page */
 }
 
 body {
@@ -20,7 +20,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f4eae2;
+    background-color: #ffffff;
 }
 
 .image-wrapper {
@@ -41,6 +41,7 @@ body {
 .contact-section {
     padding: 20px;
     text-align: center;
+    font-family: 'Arimo', sans-serif; /* Applying Arimo font */
 }
 
 .contact-section h2 {
