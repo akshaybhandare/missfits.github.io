@@ -3,73 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Two-Page Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow-x: hidden;
-        }
-        .page {
-            width: 100vw;
-            height: 100vh;
-            background-color: #f4eae2;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #page1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #page1 img {
-            max-width: 500px;
-            max-height: 500px;
-            width: 90%;
-            height: auto;
-            object-fit: contain;
-        }
-        #page2 .inquiry-text {
-            font-family: 'Arimo', sans-serif;
-            font-size: min(90px, 10vw);
-            position: absolute;
-            top: 5vh;
-            left: 5vw;
-            line-height: 1.2;
-            white-space: nowrap;
-        }
-        @media screen and (max-width: 768px) {
-            #page1 img {
-                max-width: 70%;
-            }
-            #page2 .inquiry-text {
-                font-size: min(50px, 10vw);
-            }
-        }
-        @media screen and (max-width: 480px) {
-            #page1 img {
-                max-width: 90%;
-            }
-            #page2 .inquiry-text {
-                font-size: min(30px, 10vw);
-            }
-        }
-    </style>
+    <title>MISSFITS Boutique</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="page1" class="page">
-        <img src="/image/title.svg" alt="Centered Image">
-    </div>
-    <div id="page2" class="page">
-        <div class="inquiry-text">Reach out for inquiries</div>
-    </div>
+    <header class="hero">
+        <div class="image-wrapper">
+            <img src="img/title.svg" alt="MISSFITS Boutique Logo" class="center-image">
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <ul>
+                <li><strong>Phone:</strong> <a href="tel:8088783909">8088783909</a></li>
+                <li><strong>Email:</strong> <a href="mailto:hongalsanghamitra@gmail.com">hongalsanghamitra@gmail.com</a></li>
+                <li><strong>Follow us:</strong>
+                    <a href="https://instagram.com/YOUR_PROFILE" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
