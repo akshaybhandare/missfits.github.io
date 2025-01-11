@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f9f9f9;
+    background-color: #f4eae2;
 }
 
 /* Hero Section */
@@ -42,6 +42,7 @@ body {
     padding: 20px;
     text-align: center;
     font-family: 'Arimo', sans-serif; /* Applying Arimo font */
+    background-color: #f4eae2;
 }
 
 .contact-section h2 {
@@ -71,6 +72,61 @@ body {
     height: 24px;
     vertical-align: middle;
 }
+
+
+
+
+
+
+.gallery-preview {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.gallery-link {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.gallery-link:hover {
+    background-color: #0056b3;
+}
+
+.preview-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.preview-container {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.preview-container:hover img {
+    transform: scale(1.05);
+}
+
+
+
 
 /* Footer */
 footer {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missfits Creations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f4eae2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <h1>Photo Gallery</h1>
+
+        <div class="gallery" id="gallery">Loading images...</div>
+
+        <script>
+            // Define the folder path and the total number of images
+            const folderPath = "img/product/";
+            const totalImages = 10; // Set this to the maximum number of images you expect
+    
+            // Select the gallery container
+            const galleryContainer = document.getElementById("gallery");
+            galleryContainer.innerHTML = ""; // Clear loading text
+    
+            // Loop through and add images dynamically
+            for (let i = 1; i <= totalImages; i++) {
+                const imagePath = `${folderPath}${i}.jpg`; // Assuming image files follow the naming convention image1.jpg, image2.jpg, etc.
+    
+                const galleryItem = document.createElement("div");
+                galleryItem.classList.add("gallery-item");
+    
+                const img = document.createElement("img");
+                img.src = imagePath; // Set the image source
+                img.alt = `Gallery Image ${i}`;
+    
+                // Add error handling for missing images
+                img.onerror = () => {
+                    galleryItem.remove(); // Remove the div if the image doesn't load
+                };
+    
+                galleryItem.appendChild(img);
+                galleryContainer.appendChild(galleryItem);
+            }
+        </script>
+            
+       
+    </div>
+</body>
+</html>
