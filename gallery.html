@@ -75,7 +75,7 @@
         <script>
             // Define the folder path and the total number of images
             const folderPath = "img/product/";
-            const totalImages = 10; // Set this to the maximum number of images you expect
+            const totalImages = 20; // Set this to the maximum number of images you expect
     
             // Select the gallery container
             const galleryContainer = document.getElementById("gallery");
@@ -84,6 +84,26 @@
             // Loop through and add images dynamically
             for (let i = 1; i <= totalImages; i++) {
                 const imagePath = `${folderPath}${i}.jpg`; // Assuming image files follow the naming convention image1.jpg, image2.jpg, etc.
+    
+                const galleryItem = document.createElement("div");
+                galleryItem.classList.add("gallery-item");
+    
+                const img = document.createElement("img");
+                img.src = imagePath; // Set the image source
+                img.alt = `Gallery Image ${i}`;
+    
+                // Add error handling for missing images
+                img.onerror = () => {
+                    galleryItem.remove(); // Remove the div if the image doesn't load
+                };
+    
+                galleryItem.appendChild(img);
+                galleryContainer.appendChild(galleryItem);
+            }
+
+            // Loop through and add images dynamically
+            for (let i = 1; i <= totalImages; i++) {
+                const imagePath = `${folderPath}${i}.jpeg`; // Assuming image files follow the naming convention image1.jpg, image2.jpg, etc.
     
                 const galleryItem = document.createElement("div");
                 galleryItem.classList.add("gallery-item");
