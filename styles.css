@@ -86,7 +86,7 @@ body {
 .gallery-link {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #007bff;
+    background-color: #d2a6a6;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -95,7 +95,7 @@ body {
 }
 
 .gallery-link:hover {
-    background-color: #0056b3;
+    background-color: #c09595;
 }
 
 .preview-images {
