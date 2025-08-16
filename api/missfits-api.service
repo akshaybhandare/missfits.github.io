@@ -1,0 +1,20 @@
+[Unit]
+Description=MISSFITS Boutique API
+After=network.target
+
+[Service]
+Type=exec
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/missfits.github.io
+Environment="PATH=/var/www/missfits.github.io/venv/bin"
+Environment="ENVIRONMENT=production"
+Environment="HOST=127.0.0.1"
+Environment="PORT=8001"
+Environment="DOMAIN=missfitsbymanya.store"
+ExecStart=/var/www/missfits.github.io/venv/bin/gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 127.0.0.1:8001 main:app
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
