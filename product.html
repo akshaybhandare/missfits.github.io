@@ -44,6 +44,15 @@
     </header>
 
     <main class="product-main">
+        <!-- Maintenance Warning Banner - Remove when maintenance is complete -->
+        <div id="maintenanceBanner" class="maintenance-banner">
+            <div class="maintenance-content">
+                <span class="maintenance-icon">⚠️</span>
+                <span class="maintenance-message">This product page is currently under maintenance. Some features may be temporarily unavailable.</span>
+                <button class="maintenance-close" onclick="document.getElementById('maintenanceBanner').style.display='none'">✕</button>
+            </div>
+        </div>
+        
         <div class="container">
             <!-- Breadcrumb will be inserted here -->
             <div id="breadcrumb"></div>
@@ -90,6 +99,18 @@
     <script src="js/products.js"></script>
     <script src="js/search.js"></script>
     <script>
+        // Maintenance banner controls
+        const maintenanceBanner = {
+            show: function() {
+                document.getElementById('maintenanceBanner').style.display = 'block';
+            },
+            hide: function() {
+                document.getElementById('maintenanceBanner').style.display = 'none';
+            },
+            // Set to false to disable the banner completely
+            enabled: true
+        };
+
         // Get product ID from URL parameters
         function getProductIdFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -242,7 +263,15 @@
         }
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', loadProduct);
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if maintenance banner should be shown
+            if (!maintenanceBanner.enabled) {
+                maintenanceBanner.hide();
+            }
+            
+            // Load the product details
+            loadProduct();
+        });
     </script>
 </body>
 </html>

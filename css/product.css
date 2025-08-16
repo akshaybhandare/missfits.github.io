@@ -47,6 +47,53 @@
     padding: 40px 0;
 }
 
+/* Maintenance Banner */
+.maintenance-banner {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.maintenance-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.maintenance-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.maintenance-message {
+    flex-grow: 1;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.maintenance-close {
+    background: none;
+    border: none;
+    color: #856404;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 5px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.maintenance-close:hover {
+    opacity: 1;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

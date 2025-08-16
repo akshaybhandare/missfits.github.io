@@ -158,7 +158,100 @@ Your Website Folder/
 
 ---
 
-## 💡 Tips for Success
+## � Managing Maintenance Banner
+
+A maintenance warning banner is available on the Product and Store pages to alert visitors when updates are in progress.
+
+### Temporarily Hide the Banner
+
+To temporarily hide the banner without removing it:
+
+1. Open the file (`product.html` or `store.html`)
+2. Find this section in the JavaScript:
+
+```javascript
+// Maintenance banner controls
+const maintenanceBanner = {
+  show: function () {
+    document.getElementById("maintenanceBanner").style.display = "block";
+  },
+  hide: function () {
+    document.getElementById("maintenanceBanner").style.display = "none";
+  },
+  // Set to false to disable the banner completely
+  enabled: true,
+};
+```
+
+3. Change `enabled: true` to `enabled: false` to hide the banner
+4. Save the file
+
+### Permanently Remove the Banner
+
+When maintenance is complete, you can permanently remove the banner:
+
+1. **Remove HTML:** Delete the entire banner HTML code:
+
+```html
+<!-- Maintenance Warning Banner - Remove when maintenance is complete -->
+<div id="maintenanceBanner" class="maintenance-banner">
+  <div class="maintenance-content">
+    <span class="maintenance-icon">⚠️</span>
+    <span class="maintenance-message"
+      >This page is currently under maintenance. Some features may be
+      temporarily unavailable.</span
+    >
+    <button
+      class="maintenance-close"
+      onclick="document.getElementById('maintenanceBanner').style.display='none'"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+```
+
+2. **Remove JavaScript:** Delete the maintenance banner controls:
+
+```javascript
+// Maintenance banner controls
+const maintenanceBanner = {
+  show: function () {
+    document.getElementById("maintenanceBanner").style.display = "block";
+  },
+  hide: function () {
+    document.getElementById("maintenanceBanner").style.display = "none";
+  },
+  // Set to false to disable the banner completely
+  enabled: true,
+};
+```
+
+3. **Simplify Initialization:** Replace:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if maintenance banner should be shown
+  if (!maintenanceBanner.enabled) {
+    maintenanceBanner.hide();
+  }
+
+  // Load the product details/gallery
+  loadProduct(); // or loadGallery();
+});
+```
+
+With:
+
+```javascript
+document.addEventListener("DOMContentLoaded", loadProduct); // or loadGallery
+```
+
+4. **Optional:** Remove CSS styles for the maintenance banner from `css/product.css` if they're no longer needed.
+
+---
+
+## �💡 Tips for Success
 
 1. **Start small:** Add one product at a time when you're learning
 2. **Use good photos:** Clear, well-lit images make your products look better
