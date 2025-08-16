@@ -168,127 +168,42 @@
             </a>
             <nav class="header-nav">
                 <a href="index.html">Home</a>
+                <a href="store.html">Store</a>
                 <a href="gallery.html" class="active">Gallery</a>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <h1>Our Product Collection</h1>
-        <p class="gallery-description">
-            Discover our exquisite collection of handcrafted fashion pieces. Each item is carefully designed and made with attention to detail, bringing you the perfect blend of traditional artistry and contemporary style.
-        </p>
-
-        <!-- Category Filter -->
-        <div class="category-filter" id="categoryFilter">
-            <button class="filter-btn active" data-category="all">All Products</button>
-        </div>
-
-        <!-- Products Grid -->
-        <div class="products-grid" id="productsGrid">
-            <div class="loading">Loading our beautiful collection...</div>
-        </div>
+        <h1 style="text-align:center; margin-bottom:32px;">Gallery</h1>
+        <p class="gallery-description">Scroll through all our images below.</p>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <script>
+        // Show images named 1.jpg, 2.jpg, ..., up to maxNum
+        const maxNum = 50; // Change this to your highest image number
+        const galleryGrid = document.getElementById('galleryGrid');
+        for (let i = 1; i <= maxNum; i++) {
+            const extensions = ['jpg', 'jpeg', 'png'];
+            extensions.forEach(ext => {
+                const img = document.createElement('img');
+                img.src = `img/product/${i}.${ext}`;
+                img.alt = `Product Image ${i}`;
+                img.loading = 'lazy';
+                img.onerror = function() {
+                    this.parentElement && this.parentElement.remove();
+                };
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.appendChild(img);
+                galleryGrid.appendChild(div);
+            });
+        }
+        </script>
     </div>
 
     <footer>
-        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
+    <p style="text-align:center;">&copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
     </footer>
 
-    <script src="js/products.js"></script>
-    <script src="js/search.js"></script>
-    <script>
-        let allProducts = [];
-        let currentCategory = 'all';
-
-        // Load and display products
-        async function loadGallery() {
-            try {
-                // Load product database
-                await window.productDB.loadProducts();
-                allProducts = window.productDB.getAllProducts();
-                const categories = window.productDB.getCategories();
-
-                // Setup category filter
-                setupCategoryFilter(categories);
-
-                // Display products
-                displayProducts(allProducts);
-            } catch (error) {
-                console.error('Error loading gallery:', error);
-                document.getElementById('productsGrid').innerHTML = `
-                    <div class="error">
-                        <h2>Error Loading Products</h2>
-                        <p>We're having trouble loading our collection. Please try refreshing the page.</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Setup category filter buttons
-        function setupCategoryFilter(categories) {
-            const filterContainer = document.getElementById('categoryFilter');
-            
-            // Add click event to 'All Products' button
-            const allBtn = filterContainer.querySelector('[data-category="all"]');
-            if (allBtn) {
-                allBtn.addEventListener('click', () => filterProducts('all'));
-            }
-
-            // Add category buttons
-            categories.forEach(category => {
-                const button = document.createElement('button');
-                button.className = 'filter-btn';
-                button.textContent = category.name;
-                button.setAttribute('data-category', category.id);
-                button.addEventListener('click', () => filterProducts(category.id));
-                filterContainer.appendChild(button);
-            });
-        }
-
-        // Filter products by category
-        function filterProducts(categoryId) {
-            currentCategory = categoryId;
-            
-            // Update active filter button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-category') === categoryId) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Filter and display products
-            let filteredProducts;
-            if (categoryId === 'all') {
-                filteredProducts = allProducts;
-            } else {
-                filteredProducts = window.productDB.getProductsByCategory(categoryId);
-            }
-
-            displayProducts(filteredProducts);
-        }
-
-        // Display products in grid
-        function displayProducts(products) {
-            const gridContainer = document.getElementById('productsGrid');
-            
-            if (products.length === 0) {
-                gridContainer.innerHTML = `
-                    <div class="no-products">
-                        <h3>No products found</h3>
-                        <p>There are currently no products in this category.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            gridContainer.innerHTML = products.map(product => 
-                window.ProductUtils.createProductCard(product, true)
-            ).join('');
-        }
-
-        // Initialize gallery
-        document.addEventListener('DOMContentLoaded', loadGallery);
-    </script>
 </body>
 </html>
