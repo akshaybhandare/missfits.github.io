@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://missfitsbymanya.store/sitemap.xml
+
+# Allow all search engines to crawl the entire site
+# Disallow crawling of temporary or sensitive directories (none in this case)
+
+# Crawl-delay (optional - sets a delay between requests)
+Crawl-delay: 1

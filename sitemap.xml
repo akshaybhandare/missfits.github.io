@@ -2,17 +2,22 @@
 <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
   <url>
     <loc>https://missfitsbymanya.store/</loc>
-    <lastmod>2025-01-11T06:56:30+00:00</lastmod>
+    <lastmod>2025-08-16T12:00:00+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
+    <loc>https://missfitsbymanya.store/store.html</loc>
+    <lastmod>2025-08-16T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://missfitsbymanya.store/gallery.html</loc>
-    <lastmod>2025-01-11T06:56:29+00:00</lastmod>
+    <lastmod>2025-08-16T12:00:00+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://missfitsbymanya.store/index.html</loc>
-    <lastmod>2025-01-11T06:56:29+00:00</lastmod>
+    <lastmod>2025-08-16T12:00:00+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>

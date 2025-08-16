@@ -3,12 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Gallery - MISSFITS Boutique</title>
+    <meta name="theme-color" content="#f4eae2">
+    <title>Gallery - MISSFITS Boutique | View Our Fashion Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/search.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.svg" type="image/svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Browse our fashion gallery at MISSFITS Boutique. View our portfolio of handcrafted blouses, traditional wear, and contemporary fashion designs.">
+    <meta name="keywords" content="fashion gallery, MISSFITS portfolio, designer blouse gallery, traditional wear showcase, handcrafted fashion, boutique collection">
+    <meta name="author" content="MISSFITS Boutique">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://missfitsbymanya.store/gallery.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gallery - MISSFITS Boutique | View Our Fashion Portfolio">
+    <meta property="og:description" content="Browse our fashion gallery at MISSFITS Boutique. View our portfolio of handcrafted blouses, traditional wear, and contemporary fashion designs.">
+    <meta property="og:url" content="https://missfitsbymanya.store/gallery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://missfitsbymanya.store/favicon.svg">
     
     <style>
         body {
@@ -488,7 +508,7 @@
         </div>
         
         <h1>Our Gallery</h1>
-        <p class="gallery-description">Browse through our collection of beautiful products. Our gallery showcases the diversity and uniqueness of our items.</p>
+        <p class="gallery-description">Browse through our collection of beautiful fashion photographs. Our gallery showcases the diversity and creativity of our work.</p>
         
         <!-- Removed category filter as requested -->
         
@@ -512,12 +532,8 @@
         
         <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Show images named 1.jpg, 2.jpg, ..., up to maxNum
-            const maxNum = 50; // Change this to your highest image number
             const galleryGrid = document.getElementById('galleryGrid');
             const loadingIndicator = document.getElementById('loadingIndicator');
-            let loadedImages = 0;
-            let totalExpectedImages = 0;
             let imageList = []; // Store loaded images for navigation
             
             // Modal elements
@@ -533,65 +549,97 @@
             let currentZoom = 1;
             let isZoomed = false;
             
-            // Initialize gallery
-            function initGallery() {
-                // Count expected images for loading calculation
-                for (let i = 1; i <= maxNum; i++) {
-                    const extensions = ['jpg', 'jpeg', 'png'];
-                    extensions.forEach(() => {
-                        totalExpectedImages++;
+            // Load all images from the product folder
+            function loadAllImages() {
+                // Try to load images from 1 to 50 with different extensions
+                const maxImageNumber = 50;
+                const extensions = ['jpg', 'jpeg', 'png', 'webp'];
+                let loadedCount = 0;
+                let attemptedImages = 0;
+                let totalAttempts = 0;
+                
+                // Calculate total attempts for loading progress
+                for (let i = 1; i <= maxImageNumber; i++) {
+                    totalAttempts += extensions.length;
+                }
+                
+                // Try each number with each extension
+                for (let i = 1; i <= maxImageNumber; i++) {
+                    extensions.forEach(ext => {
+                        const imageSrc = `img/product/${i}.${ext}`;
+                        const imageAlt = `Product Image ${i}`;
+                        
+                        // Create a temporary image to test if it exists
+                        const testImg = new Image();
+                        
+                        testImg.onload = function() {
+                            // Image exists, create gallery item
+                            const div = document.createElement('div');
+                            div.className = 'gallery-item';
+                            
+                            const img = document.createElement('img');
+                            img.src = imageSrc;
+                            img.alt = imageAlt;
+                            img.loading = 'lazy';
+                            
+                            const imageData = {
+                                src: imageSrc,
+                                alt: imageAlt,
+                                element: div,
+                                number: i // Store the number for sorting
+                            };
+                            div.imageData = imageData;
+                            
+                            img.onload = function() {
+                                loadedCount++;
+                                // Add to image list for modal navigation (sorted by number)
+                                imageList.push(imageData);
+                                imageList.sort((a, b) => a.number - b.number);
+                                
+                                // Add click listener for modal
+                                div.addEventListener('click', function() {
+                                    const clickedImageData = this.imageData;
+                                    const index = imageList.findIndex(item => item.src === clickedImageData.src);
+                                    if (index !== -1) {
+                                        openModal(index);
+                                    }
+                                });
+                                
+                                // Show gallery when first few images load
+                                if (loadedCount >= 3) {
+                                    showGallery();
+                                }
+                            };
+                            
+                            div.appendChild(img);
+                            galleryGrid.appendChild(div);
+                        };
+                        
+                        testImg.onerror = function() {
+                            // Image doesn't exist, continue silently
+                            attemptedImages++;
+                        };
+                        
+                        // Start loading the test image
+                        testImg.src = imageSrc;
+                        
+                        attemptedImages++;
                     });
                 }
                 
-                // Create image elements
-                for (let i = 1; i <= maxNum; i++) {
-                    const extensions = ['jpg', 'jpeg', 'png'];
-                    extensions.forEach(ext => {
-                        // Create a simple square wrapper
-                        const div = document.createElement('div');
-                        div.className = 'gallery-item';
-                        
-                        const img = document.createElement('img');
-                        const imageSrc = `img/product/${i}.${ext}`;
-                        img.src = imageSrc;
-                        img.alt = `Product Image ${i}`;
-                        img.loading = 'lazy';
-                        
-                        // Store image data in the div element for easy access
-                        const imageData = {
-                            src: imageSrc,
-                            alt: `Product Image ${i}`,
-                            element: div
-                        };
-                        div.imageData = imageData;
-                        
-                        img.onerror = function() {
-                            totalExpectedImages--;
-                            this.parentElement && this.parentElement.remove();
-                            checkAllImagesLoaded();
-                        };
-                        
-                        img.onload = function() {
-                            loadedImages++;
-                            // Add to image list for modal navigation (in order)
-                            imageList.push(imageData);
-                            
-                            // Add click listener for modal - find the correct index
-                            div.addEventListener('click', function() {
-                                const clickedImageData = this.imageData;
-                                const index = imageList.findIndex(item => item.src === clickedImageData.src);
-                                if (index !== -1) {
-                                    openModal(index);
-                                }
-                            });
-                            
-                            checkAllImagesLoaded();
-                        };
-                        
-                        div.appendChild(img);
-                        galleryGrid.appendChild(div);
-                    });
-                }
+                // Fallback timeout to show gallery even if some images don't load
+                setTimeout(() => {
+                    showGallery();
+                    if (loadedCount === 0) {
+                        galleryGrid.innerHTML = '<div class="loading">No images found in the gallery.</div>';
+                    }
+                }, 3000);
+            }
+            
+            // Show gallery
+            function showGallery() {
+                loadingIndicator.style.display = 'none';
+                galleryGrid.style.display = 'grid';
             }
             
             // Modal functions
@@ -702,31 +750,19 @@
                 }
             });
             
-            // Check if all images are loaded
-            function checkAllImagesLoaded() {
-                if (loadedImages >= totalExpectedImages * 0.5 || loadedImages > 5) {
-                    // Show gallery when enough images are loaded
-                    loadingIndicator.style.display = 'none';
-                    galleryGrid.style.display = 'grid';
-                }
+            // Initialize gallery - just load images directly
+            function initGallery() {
+                loadAllImages();
             }
             
             // Start loading images
             initGallery();
-            
-            // Fallback if images don't load
-            setTimeout(() => {
-                if (loadedImages === 0) {
-                    loadingIndicator.style.display = 'none';
-                    galleryGrid.style.display = 'grid';
-                }
-            }, 5000);
         });
         </script>
     </div>
 
     <footer>
-        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
+        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2025 MISSFITS Boutique. All Rights Reserved.</p>
     </footer>
 
     <!-- Image Preview Modal -->

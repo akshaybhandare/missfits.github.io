@@ -1,0 +1,21 @@
+{
+  "name": "MISSFITS Boutique",
+  "short_name": "MISSFITS",
+  "description": "Unique custom fashion designs including handcrafted blouses, traditional wear, and contemporary fashion pieces.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4eae2",
+  "theme_color": "#f4eae2",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "fashion", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "portrait"
+}
