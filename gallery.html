@@ -132,6 +132,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             aspect-ratio: 1/1; /* Enforce square aspect ratio */
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -150,6 +151,217 @@
 
         .gallery-item:hover img {
             transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            animation: modalSlideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+            display: block;
+        }
+
+        .modal-image.zoomed {
+            cursor: zoom-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #d2a6a6;
+        }
+
+        /* Zoom controls */
+        .modal-zoom-controls {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .zoom-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .zoom-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #d2a6a6;
+        }
+
+        /* Modal navigation arrows */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #d2a6a6;
+        }
+
+        .modal-prev {
+            left: -60px;
+        }
+
+        .modal-next {
+            right: -60px;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalSlideIn {
+            from { 
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to { 
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Mobile adjustments for modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 90%;
+                max-height: 75%;
+            }
+
+            .modal-close {
+                top: -35px;
+                font-size: 28px;
+            }
+
+            .modal-nav {
+                font-size: 20px;
+                padding: 8px 12px;
+            }
+
+            .modal-prev {
+                left: -50px;
+            }
+
+            .modal-next {
+                right: -50px;
+            }
+
+            .modal-zoom-controls {
+                bottom: -40px;
+                padding: 6px 12px;
+            }
+
+            .zoom-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 70%;
+            }
+
+            .modal-prev {
+                left: 10px;
+                top: 10px;
+                transform: none;
+            }
+
+            .modal-next {
+                right: 10px;
+                top: 10px;
+                transform: none;
+            }
+
+            .modal-close {
+                top: 10px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .modal-zoom-controls {
+                bottom: -35px;
+                padding: 4px 8px;
+            }
         }
 
         .loading {
@@ -251,14 +463,6 @@
                 background-position: -200% 0;
             }
         }
-        
-        footer {
-            margin-top: auto;
-            background: #f4eae2;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding: 20px 0;
-            color: #333;
-        }
     </style>
 </head>
 <body>
@@ -307,6 +511,20 @@
             const loadingIndicator = document.getElementById('loadingIndicator');
             let loadedImages = 0;
             let totalExpectedImages = 0;
+            let imageList = []; // Store loaded images for navigation
+            
+            // Modal elements
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+            const modalPrev = document.getElementById('modalPrev');
+            const modalNext = document.getElementById('modalNext');
+            const zoomIn = document.getElementById('zoomIn');
+            const zoomOut = document.getElementById('zoomOut');
+            const zoomReset = document.getElementById('zoomReset');
+            let currentImageIndex = 0;
+            let currentZoom = 1;
+            let isZoomed = false;
             
             // Initialize gallery
             function initGallery() {
@@ -327,9 +545,18 @@
                         div.className = 'gallery-item';
                         
                         const img = document.createElement('img');
-                        img.src = `img/product/${i}.${ext}`;
+                        const imageSrc = `img/product/${i}.${ext}`;
+                        img.src = imageSrc;
                         img.alt = `Product Image ${i}`;
                         img.loading = 'lazy';
+                        
+                        // Store image data in the div element for easy access
+                        const imageData = {
+                            src: imageSrc,
+                            alt: `Product Image ${i}`,
+                            element: div
+                        };
+                        div.imageData = imageData;
                         
                         img.onerror = function() {
                             totalExpectedImages--;
@@ -339,6 +566,18 @@
                         
                         img.onload = function() {
                             loadedImages++;
+                            // Add to image list for modal navigation (in order)
+                            imageList.push(imageData);
+                            
+                            // Add click listener for modal - find the correct index
+                            div.addEventListener('click', function() {
+                                const clickedImageData = this.imageData;
+                                const index = imageList.findIndex(item => item.src === clickedImageData.src);
+                                if (index !== -1) {
+                                    openModal(index);
+                                }
+                            });
+                            
                             checkAllImagesLoaded();
                         };
                         
@@ -347,6 +586,114 @@
                     });
                 }
             }
+            
+            // Modal functions
+            function openModal(imageIndex) {
+                currentImageIndex = imageIndex;
+                modalImage.src = imageList[imageIndex].src;
+                modalImage.alt = imageList[imageIndex].alt;
+                resetZoom();
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+                resetZoom();
+            }
+            
+            function showPreviousImage() {
+                currentImageIndex = (currentImageIndex - 1 + imageList.length) % imageList.length;
+                modalImage.src = imageList[currentImageIndex].src;
+                modalImage.alt = imageList[currentImageIndex].alt;
+                resetZoom();
+            }
+            
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % imageList.length;
+                modalImage.src = imageList[currentImageIndex].src;
+                modalImage.alt = imageList[currentImageIndex].alt;
+                resetZoom();
+            }
+
+            // Zoom functions
+            function resetZoom() {
+                currentZoom = 1;
+                isZoomed = false;
+                modalImage.style.transform = 'scale(1)';
+                modalImage.classList.remove('zoomed');
+                modalImage.style.cursor = 'zoom-in';
+            }
+
+            function zoomInImage() {
+                currentZoom = Math.min(currentZoom + 0.5, 3);
+                modalImage.style.transform = `scale(${currentZoom})`;
+                isZoomed = currentZoom > 1;
+                modalImage.classList.toggle('zoomed', isZoomed);
+                modalImage.style.cursor = currentZoom >= 3 ? 'zoom-out' : 'zoom-in';
+            }
+
+            function zoomOutImage() {
+                currentZoom = Math.max(currentZoom - 0.5, 1);
+                modalImage.style.transform = `scale(${currentZoom})`;
+                isZoomed = currentZoom > 1;
+                modalImage.classList.toggle('zoomed', isZoomed);
+                modalImage.style.cursor = currentZoom <= 1 ? 'zoom-in' : 'zoom-out';
+            }
+
+            function toggleZoom() {
+                if (isZoomed) {
+                    resetZoom();
+                } else {
+                    zoomInImage();
+                }
+            }
+            
+            // Modal event listeners
+            modalClose.addEventListener('click', closeModal);
+            modalPrev.addEventListener('click', showPreviousImage);
+            modalNext.addEventListener('click', showNextImage);
+            
+            // Zoom event listeners
+            zoomIn.addEventListener('click', zoomInImage);
+            zoomOut.addEventListener('click', zoomOutImage);
+            zoomReset.addEventListener('click', resetZoom);
+            modalImage.addEventListener('click', toggleZoom);
+            
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (modal.classList.contains('show')) {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeModal();
+                            break;
+                        case 'ArrowLeft':
+                            showPreviousImage();
+                            break;
+                        case 'ArrowRight':
+                            showNextImage();
+                            break;
+                        case '+':
+                        case '=':
+                            zoomInImage();
+                            break;
+                        case '-':
+                            zoomOutImage();
+                            break;
+                        case '0':
+                            resetZoom();
+                            break;
+                    }
+                }
+            });
             
             // Check if all images are loaded
             function checkAllImagesLoaded() {
@@ -372,10 +719,23 @@
     </div>
 
     <footer>
-        <div class="container">
-            <p style="text-align:center; padding: 10px 0;">&copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
-        </div>
+        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
     </footer>
+
+    <!-- Image Preview Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-nav modal-prev" id="modalPrev">&#8249;</button>
+            <img id="modalImage" class="modal-image" src="" alt="Preview Image">
+            <button class="modal-nav modal-next" id="modalNext">&#8250;</button>
+            <div class="modal-zoom-controls">
+                <button class="zoom-btn" id="zoomOut" title="Zoom Out">-</button>
+                <button class="zoom-btn" id="zoomReset" title="Reset Zoom">⌂</button>
+                <button class="zoom-btn" id="zoomIn" title="Zoom In">+</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
