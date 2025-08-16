@@ -55,36 +55,32 @@ The homepage shows the **first 3 products** from your product list as featured i
 
 ## 📸 Adding Images to Gallery
 
-### Step 1: Prepare Your Gallery Images
+**IMPORTANT:** The gallery automatically displays all product images from the `img/product/` folder!
 
-1. Choose your best fashion photos
-2. Save them as `.jpg` files with descriptive names like:
-   - `embroidered-blouse.jpg`
-   - `wedding-collection.jpg`
-   - `traditional-kurta.jpg`
+### How the Gallery Works
 
-### Step 2: Upload Images
+1. **Automatic Loading:** The gallery page automatically finds and displays all images from your `img/product/` folder
+2. **Supported Formats:** `.jpg`, `.jpeg`, `.png`, `.webp`
+3. **Numbering:** Images should be numbered (1.jpg, 2.jpg, 3.jpg, etc.) up to 50
+4. **No Manual Editing:** You don't need to edit any HTML files!
 
-1. Put your images in the `img/` folder
+### To Add Images to Gallery
 
-### Step 3: Add to Gallery Page
+1. **Take your photos** and save them as high-quality images
+2. **Name them with numbers:** `10.jpg`, `11.jpg`, `12.jpg`, etc. (continue from where you left off)
+3. **Put them in the `img/product/` folder**
+4. **That's it!** They will automatically appear in both:
+   - The gallery page
+   - Available for use in products
 
-1. Open `gallery.html`
-2. Find the section that looks like this:
+### Image Requirements
 
-```html
-<div class="gallery-grid"></div>
-```
+- **File formats:** `.jpg`, `.jpeg`, `.png`, or `.webp`
+- **File size:** Keep under 500KB for faster loading
+- **Quality:** Use good lighting and clear shots
+- **Naming:** Use sequential numbers (10.jpg, 11.jpg, 12.jpg, etc.)
 
-3. Add your new images like this:
-
-```html
-<div class="gallery-item">
-  <img src="img/your-new-photo.jpg" alt="Description of your photo" />
-</div>
-```
-
-**Important:** Always write a good description in the `alt=""` part!
+**Note:** The gallery shows ALL product images, so make sure all images in `img/product/` are ones you want to display publicly!
 
 ---
 
@@ -95,12 +91,24 @@ Your Website Folder/
 ├── data/
 │   └── products.json          ← Product information goes here
 ├── img/
-│   ├── product/              ← Product photos go here (1.jpg, 2.jpg, etc.)
-│   └── (other images)        ← Gallery photos go here
-├── gallery.html              ← Gallery page to edit
+│   ├── product/              ← ALL product photos go here (1.jpg, 2.jpg, etc.)
+│   │   ├── 1.jpg             ← These appear in gallery automatically
+│   │   ├── 2.jpg             ← AND can be used for products
+│   │   ├── 3.jpg             ← Keep adding with next number
+│   │   └── ...
+│   ├── logo.png              ← Website logo
+│   └── title.svg             ← Website title
+├── gallery.html              ← Gallery page (auto-loads from img/product/)
 ├── index.html                ← Homepage
 └── (other files)
 ```
+
+### Key Points:
+
+- **Gallery images = Product images:** The gallery automatically shows all images from `img/product/`
+- **Sequential numbering:** Use 1.jpg, 2.jpg, 3.jpg, etc.
+- **Next image number:** Currently you have images 1-9, so add new images starting from 10.jpg
+- **Automatic display:** No need to edit HTML files for gallery updates
 
 ---
 
@@ -115,10 +123,10 @@ Your Website Folder/
 
 ### When Adding Gallery Images:
 
-- [ ] Photos uploaded to `img/` folder
-- [ ] Added to `gallery.html` file
-- [ ] Included good descriptions for each photo
-- [ ] Checked gallery page works
+- [ ] Photos uploaded to `img/product/` folder with sequential numbers
+- [ ] Used next available number (currently start from 10.jpg)
+- [ ] Checked gallery page automatically shows new images
+- [ ] Verified image quality and size (under 500KB)
 
 ### When Changing Featured Products:
 

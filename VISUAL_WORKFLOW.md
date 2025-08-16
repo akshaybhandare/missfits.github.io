@@ -42,22 +42,22 @@ Current Homepage Featured Products = First 3 Products in JSON
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Prepare Photos  │ -> │ Upload to img/  │ -> │ Edit gallery.   │
-│                 │    │ folder          │    │ html file       │
+│ Prepare Photos  │ -> │ Upload to img/  │ -> │ AUTOMATIC       │
+│                 │    │ product/ folder │    │ Gallery Update  │
 │ • Good quality  │    │                 │    │                 │
-│ • Descriptive   │    │ fashion-1.jpg   │    │ Add:            │
-│   names         │    │ embroidery-2.   │    │ <div class=     │
-│ • Under 300KB   │    │ jpg             │    │ "gallery-item"> │
+│ • Sequential    │    │ 10.jpg          │    │ Gallery page    │
+│   numbers       │    │ 11.jpg          │    │ automatically   │
+│ • Under 500KB   │    │ 12.jpg          │    │ finds & shows   │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                                                         |
                                                         v
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│ Check Gallery   │ <- │   Save File     │ <- │ Add Image Tags  │
-│ Page Works      │    │                 │    │                 │
-│                 │    │ gallery.html    │    │ <img src="img/  │
-│ • Images load   │    │                 │    │ photo.jpg"      │
-│ • Layout looks  │    │                 │    │ alt="describe   │
-│   good          │    │                 │    │ photo">         │
+│ Check Gallery   │ <- │   Images Now    │ <- │ NO HTML Editing │
+│ Page Works      │    │   Available     │    │ Required!       │
+│                 │    │                 │    │                 │
+│ • Images load   │    │ • For gallery   │    │ JavaScript      │
+│ • Modal works   │    │ • For products  │    │ handles         │
+│ • Zoom works    │    │                 │    │ everything      │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -70,13 +70,15 @@ missfits.github.io/
 │   └── 📄 products.json ← EDIT THIS for products
 │
 ├── 📁 img/
-│   ├── 📁 product/ ← PUT PRODUCT PHOTOS HERE
-│   │   ├── 🖼️ 1.jpg
-│   │   ├── 🖼️ 2.jpg
+│   ├── 📁 product/ ← PUT ALL PHOTOS HERE (dual purpose!)
+│   │   ├── 🖼️ 1.jpg    ← Available for products AND gallery
+│   │   ├── 🖼️ 2.jpg    ← Gallery auto-shows ALL these images
+│   │   ├── 🖼️ 3.jpg    ← Next: add 10.jpg, 11.jpg, etc.
 │   │   └── 🖼️ ...
-│   └── 🖼️ gallery photos ← PUT GALLERY PHOTOS HERE
+│   ├── 🖼️ logo.png ← Website logo
+│   └── 🖼️ title.svg ← Website title
 │
-├── 📄 gallery.html ← EDIT THIS for gallery
+├── 📄 gallery.html ← AUTO-loads from img/product/
 ├── 📄 index.html (homepage)
 ├── 📄 store.html (all products)
 └── 📄 product.html (individual product)
@@ -97,10 +99,10 @@ What do you want to do?
 │   └── Reorder first 3 products in products.json
 │
 ├── Add Gallery Images?
-│   ├── Do you have photos?
-│   │   ├── Yes → Follow "Adding Gallery Images" workflow
+│   ├── Just add numbered images to img/product/
+│   │   ├── Yes → Upload 10.jpg, 11.jpg, etc. to img/product/
 │   │   └── No → Take/prepare photos first
-│   └──
+│   └── Gallery updates automatically!
 │
 └── Something else?
     └── Check DEVELOPER_GUIDE.md for detailed instructions
@@ -124,9 +126,9 @@ What do you want to do?
 
 **Fastest way to add gallery image:**
 
-1. Upload image to img/ folder
-2. Copy existing gallery item HTML
-3. Change image name and description
-4. Save & check
+1. Upload numbered image to img/product/ folder (e.g., 10.jpg)
+2. Gallery automatically detects and displays it
+3. Image is now available for products too
+4. Done! ✨
 
 Remember: Always backup before making changes! 🛡️

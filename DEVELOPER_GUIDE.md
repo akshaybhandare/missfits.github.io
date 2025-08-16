@@ -136,68 +136,72 @@ Use one of these existing categories:
 
 ### Understanding the Gallery Structure
 
-The gallery page (`gallery.html`) displays a collection of fashion images in a grid layout.
+**IMPORTANT:** The gallery page (`gallery.html`) automatically loads and displays all images from the `/img/product/` folder. You do NOT need to manually edit the HTML file.
+
+### How the Automatic Gallery Works
+
+The gallery uses JavaScript to:
+
+1. Scan the `/img/product/` folder for images numbered 1-50
+2. Check for multiple file extensions: `.jpg`, `.jpeg`, `.png`, `.webp`
+3. Automatically create gallery items for each found image
+4. Display them in a responsive grid layout
 
 ### Step 1: Prepare Gallery Images
 
 1. **Image Requirements:**
 
-   - Format: JPG, JPEG, or PNG
+   - Format: JPG, JPEG, PNG, or WebP
    - Recommended size: 800x600px or larger
-   - Keep file size under 300KB for optimal loading
-   - Use descriptive filenames
+   - Keep file size under 500KB for optimal loading
+   - Use sequential numbering (e.g., 10.jpg, 11.jpg, 12.jpg)
 
 2. **Upload Images:**
-   - Place images in `/img/` folder or create subfolders as needed
-   - You can organize by categories (e.g., `/img/gallery/`, `/img/showcase/`)
+   - Place images in `/img/product/` folder ONLY
+   - Use the next available number (currently 10.jpg and up)
+   - The gallery will automatically detect and display them
 
-### Step 2: Add Images to Gallery HTML
+### Step 2: Current Image Status
 
-1. **Open the gallery file:**
+Based on the current folder structure:
+
+- **Existing images:** 1.jpg through 9.jpg (and 7.jpeg)
+- **Next available numbers:** Start from 10.jpg
+- **Supported extensions:** .jpg, .jpeg, .png, .webp
+
+### Step 3: No Manual HTML Editing Required
+
+Unlike traditional galleries, you do NOT need to:
+
+- Edit `gallery.html`
+- Add `<img>` tags manually
+- Update any HTML code
+
+The gallery automatically:
+
+- Detects new images
+- Creates proper HTML structure
+- Handles image loading and display
+- Provides modal viewing and zoom functionality
+
+### Example: Adding New Gallery Images
+
+1. **Save your images as:**
 
    ```
-   gallery.html
+   /img/product/10.jpg
+   /img/product/11.jpg
+   /img/product/12.jpg
    ```
 
-2. **Find the gallery grid section:**
-   Look for the `<div class="gallery-grid">` section
+2. **That's it!** The gallery will automatically show these images.
 
-3. **Add new gallery items:**
-   ```html
-   <div class="gallery-item">
-     <img
-       src="img/your-new-image.jpg"
-       alt="Description of the image"
-       loading="lazy"
-     />
-   </div>
-   ```
+### Important Notes
 
-### Step 3: Gallery Image Guidelines
-
-- **Alt text:** Always include descriptive alt text for accessibility
-- **Loading:** Use `loading="lazy"` for better performance
-- **Image descriptions:** Make alt text descriptive and relevant
-- **File organization:** Group related images in subfolders
-
-### Example Gallery Addition:
-
-```html
-<div class="gallery-item">
-  <img
-    src="img/gallery/embroidered-saree-blouse.jpg"
-    alt="Elegant embroidered saree blouse with golden threadwork"
-    loading="lazy"
-  />
-</div>
-<div class="gallery-item">
-  <img
-    src="img/gallery/vintage-kurta-collection.jpg"
-    alt="Collection of vintage-style kurtas in various colors"
-    loading="lazy"
-  />
-</div>
-```
+- **All product folder images appear in gallery:** Every image in `/img/product/` will be visible in the public gallery
+- **Use consistent numbering:** Continue the sequence (10, 11, 12, etc.)
+- **Multiple extensions supported:** You can mix .jpg, .jpeg, .png, .webp files
+- **Loading is automatic:** The JavaScript handles everything
 
 ---
 
@@ -209,6 +213,10 @@ missfits.github.io/
 │   └── products.json          # All product data
 ├── img/
 │   ├── product/              # Product images (numbered 1.jpg, 2.jpg, etc.)
+│   │   ├── 1.jpg             # These images serve DUAL purpose:
+│   │   ├── 2.jpg             # 1. Available for product listings
+│   │   ├── 3.jpg             # 2. Automatically shown in gallery
+│   │   └── ...               # Gallery scans this folder automatically
 │   ├── logo.png              # Site logo
 │   └── title.svg             # Title image
 ├── js/
@@ -218,7 +226,7 @@ missfits.github.io/
 │   ├── product.css           # Product page styles
 │   └── search.css            # Search styles
 ├── index.html                # Homepage with featured products
-├── gallery.html              # Gallery page
+├── gallery.html              # Gallery page (auto-loads from img/product/)
 ├── product.html              # Individual product page
 ├── store.html                # All products listing
 └── styles.css                # Main stylesheet
