@@ -422,8 +422,45 @@
 
 .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Compact styling for related product cards */
+.related-products .product-card {
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.related-products .product-image {
+    aspect-ratio: 1/1.2;
+}
+
+.related-products .product-info {
+    padding: 15px;
+}
+
+.related-products .product-name {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.related-products .product-description {
+    font-size: 13px;
+    margin-bottom: 10px;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
+.related-products .product-price {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.related-products .product-category {
+    font-size: 11px;
 }
 
 /* Product Cards */
@@ -579,8 +616,13 @@
     }
 
     .related-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 600px;
+    }
+
+    .related-products .product-card {
+        max-width: none;
     }
 
     .container {
@@ -618,5 +660,14 @@
 
     .nav-arrow {
         font-size: 20px;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .related-products .product-card {
+        max-width: 300px;
     }
 }
