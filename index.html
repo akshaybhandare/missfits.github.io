@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MISSFITS Boutique</title>
     <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/search.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
         <link rel="icon" href="https://missfitsbymanya.store/favicon.svg" type="image/svg">
 
        
@@ -56,23 +57,13 @@
 
 
     <div class="container">
-        
-        
         <div class="gallery-preview">
-            <h2>Product Gallery</h2>
-            <div class="preview-images">
-                <div class="preview-container">
-                    <img src="img/product/1.jpg" alt="Preview 1">
-                </div>
-                <div class="preview-container">
-                    <img src="img/product/2.jpg" alt="Preview 2">
-                </div>
-                <div class="preview-container">
-                    <img src="img/product/3.jpg" alt="Preview 3">
-                </div>
+            <h2>Featured Products</h2>
+            <div class="preview-images" id="featuredProducts">
+                <div class="loading">Loading featured products...</div>
             </div>
             <p style="margin: 30px 0;">Explore our collection of beautiful creations</p>
-            <a href="gallery.html" class="gallery-link">View Full Gallery</a>
+                <a href="store.html" class="gallery-link">View Store</a>
         </div>
     </div>
 
@@ -100,5 +91,62 @@
     <footer>
         <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
     </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        // Load featured products on homepage
+        async function loadFeaturedProducts() {
+            try {
+                await window.productDB.loadProducts();
+                const featuredProducts = window.productDB.getFeaturedProducts(3);
+                
+                const container = document.getElementById('featuredProducts');
+                if (featuredProducts.length > 0) {
+                    container.innerHTML = featuredProducts.map(product => `
+                        <div class="preview-container">
+                            <a href="${window.productDB.getProductUrl(product.id)}" class="featured-link">
+                                <img src="${product.mainImage}" alt="${product.name}">
+                                <div class="preview-overlay">
+                                    <h4>${product.name}</h4>
+                                    <p>${product.price}</p>
+                                </div>
+                            </a>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `
+                        <div class="preview-container">
+                            <img src="img/product/1.jpg" alt="Preview 1">
+                        </div>
+                        <div class="preview-container">
+                            <img src="img/product/2.jpg" alt="Preview 2">
+                        </div>
+                        <div class="preview-container">
+                            <img src="img/product/3.jpg" alt="Preview 3">
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading featured products:', error);
+                // Fallback to static images
+                const container = document.getElementById('featuredProducts');
+                container.innerHTML = `
+                    <div class="preview-container">
+                        <img src="img/product/1.jpg" alt="Preview 1">
+                    </div>
+                    <div class="preview-container">
+                        <img src="img/product/2.jpg" alt="Preview 2">
+                    </div>
+                    <div class="preview-container">
+                        <img src="img/product/3.jpg" alt="Preview 3">
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadFeaturedProducts);
+    </script>
 </body>
 </html>

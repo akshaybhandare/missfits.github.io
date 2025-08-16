@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Product Details - MISSFITS Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg">
+    
+    <meta name="description" content="Beautiful custom fashion pieces from MISSFITS Boutique">
+    <meta name="keywords" content="fashion boutique, unique designs, women's fashion, MISSFITS Boutique">
+    <meta name="author" content="MISSFITS Boutique">
+    <meta name="robots" content="index, follow">
+</head>
+<body>
+    <header class="product-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="img/title.svg" alt="MISSFITS Boutique Logo" class="header-logo">
+            </a>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                    <a href="store.html">Gallery</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="product-main">
+        <div class="container">
+            <!-- Breadcrumb will be inserted here -->
+            <div id="breadcrumb"></div>
+
+            <!-- Product content will be loaded here -->
+            <div id="productContent" class="loading">
+                <div class="loading-spinner">Loading product details...</div>
+            </div>
+
+            <!-- Product navigation -->
+            <div id="productNavigation" class="product-navigation" style="display: none;">
+                <div class="nav-item prev">
+                    <a id="prevProduct" href="#" class="nav-link">
+                        <span class="nav-arrow">‹</span>
+                        <div class="nav-info">
+                            <span class="nav-label">Previous</span>
+                            <span class="nav-name"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="nav-item next">
+                    <a id="nextProduct" href="#" class="nav-link">
+                        <div class="nav-info">
+                            <span class="nav-label">Next</span>
+                            <span class="nav-name"></span>
+                        </div>
+                        <span class="nav-arrow">›</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related products -->
+            <section id="relatedProducts" class="related-products" style="display: none;">
+                <h2>Related Products</h2>
+                <div class="related-grid" id="relatedGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        // Get product ID from URL parameters
+        function getProductIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // Load and display product
+        async function loadProduct() {
+            const productId = getProductIdFromURL();
+            
+            if (!productId) {
+                document.getElementById('productContent').innerHTML = `
+                    <div class="error">
+                        <h2>Product Not Found</h2>
+                        <p>No product ID specified. <a href="gallery.html">Return to gallery</a></p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Load product database
+            await window.productDB.loadProducts();
+            const product = window.productDB.getProductById(productId);
+
+            if (!product) {
+                document.getElementById('productContent').innerHTML = `
+                    <div class="error">
+                        <h2>Product Not Found</h2>
+                        <p>The requested product could not be found. <a href="gallery.html">Return to gallery</a></p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update page title
+            document.getElementById('pageTitle').textContent = `${product.name} - MISSFITS Boutique`;
+
+            // Create breadcrumb
+            document.getElementById('breadcrumb').innerHTML = window.ProductUtils.createBreadcrumb(product);
+
+            // Create product content
+            const productHTML = `
+                <div class="product-detail">
+                    <div class="product-images">
+                        ${window.ProductUtils.createProductGallery(product.images, product.name)}
+                    </div>
+                    <div class="product-info">
+                        <h1 class="product-title">${product.name}</h1>
+                        <div class="product-price-large">${product.price}</div>
+                        <div class="product-availability ${product.availability.toLowerCase().replace(' ', '-')}">${product.availability}</div>
+                        
+                        <div class="product-description">
+                            <p>${product.longDescription}</p>
+                        </div>
+
+                        <div class="product-details">
+                            <div class="detail-section">
+                                <h3>Features</h3>
+                                <ul class="feature-list">
+                                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Product Information</h3>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <span class="info-label">Material:</span>
+                                        <span class="info-value">${product.material}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Available Sizes:</span>
+                                        <span class="info-value">${product.sizes.join(', ')}</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Available Colors:</span>
+                                        <span class="info-value">${product.colors.join(', ')}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Care Instructions</h3>
+                                <ul class="care-list">
+                                    ${product.care.map(instruction => `<li>${instruction}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="product-actions">
+                            <a href="tel:7975495202" class="btn btn-primary">Call to Order</a>
+                            <a href="https://wa.me/+917975495202?text=Hi, I'm interested in ${encodeURIComponent(product.name)} (${productId})" class="btn btn-secondary" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('productContent').innerHTML = productHTML;
+
+            // Setup navigation
+            setupProductNavigation(productId);
+
+            // Load related products
+            loadRelatedProducts(productId);
+        }
+
+        // Setup product navigation
+        function setupProductNavigation(productId) {
+            const navigation = window.productDB.getProductNavigation(productId);
+            const navContainer = document.getElementById('productNavigation');
+
+            if (navigation.prev || navigation.next) {
+                navContainer.style.display = 'flex';
+
+                const prevLink = document.getElementById('prevProduct');
+                const nextLink = document.getElementById('nextProduct');
+
+                if (navigation.prev) {
+                    prevLink.href = window.productDB.getProductUrl(navigation.prev.id);
+                    prevLink.querySelector('.nav-name').textContent = navigation.prev.name;
+                    prevLink.parentElement.style.display = 'block';
+                } else {
+                    prevLink.parentElement.style.display = 'none';
+                }
+
+                if (navigation.next) {
+                    nextLink.href = window.productDB.getProductUrl(navigation.next.id);
+                    nextLink.querySelector('.nav-name').textContent = navigation.next.name;
+                    nextLink.parentElement.style.display = 'block';
+                } else {
+                    nextLink.parentElement.style.display = 'none';
+                }
+            }
+        }
+
+        // Load related products
+        function loadRelatedProducts(productId) {
+            const relatedProducts = window.productDB.getRelatedProducts(productId, 3);
+            
+            if (relatedProducts.length > 0) {
+                const relatedContainer = document.getElementById('relatedProducts');
+                const relatedGrid = document.getElementById('relatedGrid');
+                
+                relatedGrid.innerHTML = relatedProducts.map(product => 
+                    window.ProductUtils.createProductCard(product, true)
+                ).join('');
+                
+                relatedContainer.style.display = 'block';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', loadProduct);
+    </script>
+</body>
+</html>

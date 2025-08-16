@@ -1,0 +1,122 @@
+{
+  "products": [
+    {
+      "id": "product-001",
+      "name": "Elegant Floral Blouse",
+      "category": "blouses",
+      "description": "A stunning hand-stitched blouse featuring intricate floral embroidery. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
+      "longDescription": "This exquisite floral blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable.",
+      "price": "₹2,500",
+      "images": [
+        "img/product/1.jpg",
+        "img/product/2.jpg",
+        "img/product/3.jpg"
+      ],
+      "mainImage": "img/product/1.jpg",
+      "features": [
+        "Hand-stitched embroidery",
+        "Premium silk fabric",
+        "Custom fitting available",
+        "Traditional design with modern appeal",
+        "Perfect for special occasions"
+      ],
+      "care": [
+        "Dry clean only",
+        "Store in a cool, dry place",
+        "Iron on low heat with cloth protection",
+        "Avoid direct sunlight when storing"
+      ],
+      "availability": "In Stock",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Royal Blue", "Emerald Green", "Deep Purple"],
+      "material": "Pure Silk",
+      "tags": ["formal", "traditional", "embroidered", "silk", "handmade"]
+    },
+    {
+      "id": "product-002",
+      "name": "Contemporary Designer Saree Blouse",
+      "category": "blouses",
+      "description": "A modern interpretation of classic saree blouse design with contemporary cuts and styling. Features unique back design and perfect fitting.",
+      "longDescription": "This contemporary designer blouse redefines traditional saree styling with its innovative cut and modern silhouette. The piece features a unique back design with intricate detailing that sets it apart from conventional blouses. Crafted with attention to every detail, this blouse offers the perfect balance between comfort and style. The contemporary design elements make it suitable for both traditional and fusion wear.",
+      "price": "₹3,200",
+      "images": [
+        "img/product/4.jpg",
+        "img/product/5.jpg",
+        "img/product/6.jpg"
+      ],
+      "mainImage": "img/product/4.jpg",
+      "features": [
+        "Contemporary design",
+        "Unique back detailing",
+        "Perfect fit guarantee",
+        "Versatile styling options",
+        "Premium finishing"
+      ],
+      "care": [
+        "Hand wash or dry clean",
+        "Iron on medium heat",
+        "Store hanging to maintain shape",
+        "Keep away from sharp objects"
+      ],
+      "availability": "In Stock",
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colors": ["Black", "Navy Blue", "Maroon", "Gold"],
+      "material": "Blended Fabric",
+      "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
+    },
+    {
+      "id": "product-003",
+      "name": "Vintage Embroidered Kurta",
+      "category": "kurtas",
+      "description": "A beautiful vintage-inspired kurta with traditional embroidery work. Perfect for casual and semi-formal occasions.",
+      "longDescription": "Step into timeless elegance with this vintage-inspired embroidered kurta that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear.",
+      "price": "₹1,800",
+      "images": [
+        "img/product/7.jpeg",
+        "img/product/8.jpg",
+        "img/product/9.jpg"
+      ],
+      "mainImage": "img/product/7.jpeg",
+      "features": [
+        "Vintage-inspired design",
+        "Traditional embroidery",
+        "Comfortable loose fit",
+        "Breathable cotton fabric",
+        "Versatile styling"
+      ],
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Iron on medium heat",
+        "Do not bleach"
+      ],
+      "availability": "In Stock",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Cream", "Pale Yellow", "Light Pink", "White"],
+      "material": "Cotton",
+      "tags": ["vintage", "embroidered", "kurta", "casual", "traditional"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "blouses",
+      "name": "Blouses",
+      "description": "Elegant and designer blouses for all occasions"
+    },
+    {
+      "id": "kurtas",
+      "name": "Kurtas",
+      "description": "Traditional and contemporary kurtas"
+    },
+    {
+      "id": "sarees",
+      "name": "Sarees",
+      "description": "Beautiful sarees for special occasions"
+    },
+    {
+      "id": "dresses",
+      "name": "Dresses",
+      "description": "Modern and fusion dresses"
+    }
+  ]
+}
