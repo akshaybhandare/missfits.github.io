@@ -3,7 +3,7 @@
     {
       "id": "product-001",
       "name": "Elegant Floral Blouse",
-      "category": "blouses",
+      "category": "Blouses",
       "description": "A stunning hand-stitched blouse featuring intricate floral embroidery. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
       "longDescription": "This exquisite floral blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable.",
       "price": "₹2,500",
@@ -35,7 +35,7 @@
     {
       "id": "product-002",
       "name": "Contemporary Designer Saree Blouse",
-      "category": "blouses",
+      "category": "Blouses",
       "description": "A modern interpretation of classic saree blouse design with contemporary cuts and styling. Features unique back design and perfect fitting.",
       "longDescription": "This contemporary designer blouse redefines traditional saree styling with its innovative cut and modern silhouette. The piece features a unique back design with intricate detailing that sets it apart from conventional blouses. Crafted with attention to every detail, this blouse offers the perfect balance between comfort and style. The contemporary design elements make it suitable for both traditional and fusion wear.",
       "price": "₹3,200",
@@ -66,15 +66,13 @@
     },
     {
       "id": "product-003",
-      "name": "Vintage Embroidered Kurta",
-      "category": "kurtas",
-      "description": "A beautiful vintage-inspired kurta with traditional embroidery work. Perfect for casual and semi-formal occasions.",
-      "longDescription": "Step into timeless elegance with this vintage-inspired embroidered kurta that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear.",
-      "price": "₹1,800",
+      "name": "Vintage Half Saree",
+      "category": "Sarees",
+      "description": "A beautiful vintage-inspired half saree with traditional embroidery work. Perfect for casual and semi-formal occasions.",
+      "longDescription": "Step into timeless elegance with this vintage-inspired half saree that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear. This is not ready-made, only stitching is available. Contact for more details.",
+      "price": "₹3,000",
       "images": [
-        "img/product/7.jpeg",
-        "img/product/8.jpg",
-        "img/product/9.jpg"
+        "img/product/7.jpeg"
       ],
       "mainImage": "img/product/7.jpeg",
       "features": [
@@ -92,9 +90,9 @@
       ],
       "availability": "In Stock",
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Cream", "Pale Yellow", "Light Pink", "White"],
+      "colors": ["Whatever you want"],
       "material": "Cotton",
-      "tags": ["vintage", "embroidered", "kurta", "casual", "traditional"]
+      "tags": ["vintage", "Half Saree", "kurta", "casual", "traditional", "Stitched"]
     }
   ],
   "categories": [
