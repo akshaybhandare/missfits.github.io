@@ -2,35 +2,33 @@
   "products": [
     {
       "id": "product-001",
-      "name": "Elegant Floral Blouse",
+      "name": "Elegant Blouse",
       "category": "Blouses",
-      "description": "A stunning hand-stitched blouse featuring intricate floral embroidery. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
-      "longDescription": "This exquisite floral blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable.",
-      "price": "₹2,500",
+      "description": "A stunning hand-stitched padded blouse featuring intricate floral. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
+      "longDescription": "This exquisite blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable. This is not ready-made and is hand-stitched as per order. Material and size can be customized as per request. Price starts from ₹800.",
+      "price": "Starting from ₹899",
       "images": [
-        "img/product/1.jpg",
-        "img/product/2.jpg",
-        "img/product/3.jpg"
+      "img/product/1.jpg"
       ],
       "mainImage": "img/product/1.jpg",
       "features": [
-        "Hand-stitched embroidery",
-        "Premium silk fabric",
-        "Custom fitting available",
-        "Traditional design with modern appeal",
-        "Perfect for special occasions"
+      "Hand-stitched",
+      "Premium silk fabric",
+      "Custom fitting available",
+      "Traditional design with modern appeal",
+      "Perfect for special occasions"
       ],
       "care": [
-        "Dry clean only",
-        "Store in a cool, dry place",
-        "Iron on low heat with cloth protection",
-        "Avoid direct sunlight when storing"
+      "Dry clean only",
+      "Store in a cool, dry place",
+      "Iron on low heat with cloth protection",
+      "Avoid direct sunlight when storing"
       ],
       "availability": "In Stock",
-      "sizes": ["S", "M", "L", "XL"],
-      "colors": ["Royal Blue", "Emerald Green", "Deep Purple"],
-      "material": "Pure Silk",
-      "tags": ["formal", "traditional", "embroidered", "silk", "handmade"]
+      "sizes": ["Free Size"],
+      "colors": ["Material Color"],
+      "material": "Cotton",
+      "tags": ["formal", "traditional", "princes cut", "silk", "handmade"]
     },
     {
       "id": "product-002",
