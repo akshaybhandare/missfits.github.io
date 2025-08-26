@@ -13,7 +13,19 @@
         <link rel="icon" href="https://missfitsbymanya.store/favicon.svg" type="image/svg">
     <link rel="manifest" href="manifest.json">
 
-       
+    <script type="speculationrules">
+    {
+      "prerender": [{
+        "where": { "href_matches": "/*" },
+        "eagerness": "moderate"
+      }],
+      "prefetch": [{
+        "where": { "href_matches": "/*" },
+        "eagerness": "moderate"
+      }]
+    }
+    </script>
+
     <meta name="description" content="MISSFITS Boutique offers unique, custom-stitched and stylish fashion designs. Discover our collection of handcrafted blouses, traditional wear, and contemporary fashion pieces.">
     <meta name="keywords" content="fashion boutique, unique designs, women's fashion, MISSFITS Boutique, designer blouse, custom blouse, handcrafted fashion, traditional wear, contemporary designs, Kadabagere boutique">
     <meta name="author" content="MISSFITS Boutique">
@@ -33,7 +45,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MISSFITS Boutique - Unique Custom Fashion Designs">
     <meta name="twitter:description" content="Discover unique, custom-stitched and stylish fashion designs at MISSFITS Boutique.">
-    <meta name="twitter:image" content="https://missfitsbymanya.store/favicon.svg">        <script type="application/ld+json">
+    <meta name="twitter:image" content="https://missfitsbymanya.store/favicon.svg">        
+    <script type="application/ld+json">
             {
               "@context": "https://schema.org",
               "@type": "Organization",
