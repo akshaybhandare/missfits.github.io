@@ -3,7 +3,7 @@
     {
       "id": "product-001",
       "name": "Elegant Blouse",
-      "category": "Blouses",
+      "category": "blouses",
       "description": "A stunning hand-stitched padded blouse featuring intricate floral. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
       "longDescription": "This exquisite blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable. This is not ready-made and is hand-stitched as per order. Material and size can be customized as per request. Price starts from ₹800.",
       "price": "Starting from ₹899",
@@ -33,7 +33,7 @@
     {
       "id": "product-002",
       "name": "Contemporary Designer Saree Blouse",
-      "category": "Blouses",
+      "category": "blouses",
       "description": "A modern interpretation of classic saree blouse design with contemporary cuts and styling. Features unique back design and perfect fitting.",
       "longDescription": "This contemporary designer blouse redefines traditional saree styling with its innovative cut and modern silhouette. The piece features a unique back design with intricate detailing that sets it apart from conventional blouses. Crafted with attention to every detail, this blouse offers the perfect balance between comfort and style. The contemporary design elements make it suitable for both traditional and fusion wear.",
       "price": "₹3,200",
@@ -65,7 +65,7 @@
     {
       "id": "product-003",
       "name": "Vintage Half Saree",
-      "category": "Sarees",
+      "category": "sarees",
       "description": "A beautiful vintage-inspired half saree with traditional embroidery work. Perfect for casual and semi-formal occasions.",
       "longDescription": "Step into timeless elegance with this vintage-inspired half saree that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear. This is not ready-made, only stitching is available. Contact for more details.",
       "price": "₹3,000",
@@ -95,7 +95,7 @@
     {
       "id": "product-004",
       "name": "Kali Lehanga",
-      "category": "Lehangas",
+      "category": "lehangas",
       "description": "A beautiful and elegant Kali Lehanga perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
       "longDescription": "This stunning Kali Lehanga embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
       "price": "₹3,499",
