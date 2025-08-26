@@ -32,14 +32,13 @@
     },
     {
       "id": "product-002",
-      "name": "Contemporary Designer Saree Blouse",
-      "category": "blouses",
-      "description": "A modern interpretation of classic saree blouse design with contemporary cuts and styling. Features unique back design and perfect fitting.",
-      "longDescription": "This contemporary designer blouse redefines traditional saree styling with its innovative cut and modern silhouette. The piece features a unique back design with intricate detailing that sets it apart from conventional blouses. Crafted with attention to every detail, this blouse offers the perfect balance between comfort and style. The contemporary design elements make it suitable for both traditional and fusion wear.",
-      "price": "₹3,200",
+      "name": "Baby Dress",
+      "category": "dresses",
+      "description": "An adorable baby frock designed to make your little one look even cuter. Perfect for birthdays, photoshoots, and special occasions.",
+      "longDescription": "This charming baby frock is crafted with soft, breathable fabric to ensure your baby's comfort while looking absolutely delightful. The design features playful patterns and vibrant colors that are perfect for capturing precious moments. The frock is lightweight, easy to wear, and allows for free movement, making it ideal for active little ones. Suitable for all seasons and customizable for a perfect fit.",
+      "price": "₹500",
       "images": [
         "img/product/4.jpg",
-        "img/product/5.jpg",
         "img/product/6.jpg"
       ],
       "mainImage": "img/product/4.jpg",
@@ -58,7 +57,7 @@
       ],
       "availability": "In Stock",
       "sizes": ["Free Size"],
-      "colors": ["Black", "Navy Blue", "Maroon", "Gold"],
+      "colors": ["Whatever you want"],
       "material": "Blended Fabric",
       "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
     },
