@@ -109,6 +109,31 @@ const ProductUtils = {
         const cardClass = showLink ? 'product-card clickable' : 'product-card';
         const linkStart = showLink ? `<a href="${window.productDB.getProductUrl(product.id)}" class="product-link">` : '';
         const linkEnd = showLink ? '</a>' : '';
+        
+        // Create structured data for the product
+        const structuredData = {
+            '@context': 'https://schema.org/',
+            '@type': 'Product',
+            name: product.name,
+            description: product.description,
+            image: product.mainImage,
+            offers: {
+                '@type': 'Offer',
+                price: product.price.replace(/[^\d.]/g, ''), // Remove currency symbol
+                priceCurrency: 'INR',
+                availability: product.availability === 'In Stock' ? 
+                    'https://schema.org/InStock' : 
+                    'https://schema.org/OutOfStock',
+                url: window.location.origin + '/' + window.productDB.getProductUrl(product.id)
+            },
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: 0,
+                reviewCount: 0,
+                bestRating: 5,
+                worstRating: 1
+            }
+        };
 
         return `
             <div class="${cardClass}" data-product-id="${product.id}">
@@ -126,6 +151,9 @@ const ProductUtils = {
                     <div class="product-category">${product.category}</div>
                 </div>
                 ${linkEnd}
+                <script type="application/ld+json">
+                    ${JSON.stringify(structuredData)}
+                </script>
             </div>
         `;
     },
