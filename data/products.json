@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": "product-001",
+      "id": "product-004",
       "name": "Elegant Blouse",
       "category": "blouses",
       "description": "A stunning hand-stitched padded blouse featuring intricate floral. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
@@ -92,7 +92,7 @@
       "tags": ["vintage", "Half Saree", "kurta", "casual", "traditional", "Stitched"]
     },
     {
-      "id": "product-004",
+      "id": "product-001",
       "name": "Kali Lehanga",
       "category": "lehangas",
       "description": "A beautiful and elegant Kali Lehanga perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
