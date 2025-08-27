@@ -1,6 +1,39 @@
 {
   "products": [
     {
+      "id": "product-001",
+      "name": "Kali Lehanga",
+      "category": "lehangas",
+      "description": "A beautiful and elegant Kali Lehanga perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
+      "longDescription": "This stunning Kali Lehanga embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
+      "price": "₹3,499",
+      "images": [
+        "img/product/3.jpg"
+      ],
+      "mainImage": "img/product/3.jpg",
+      "features": [
+        "Traditional craftsmanship",
+        "Modern styling elements",
+        "Comfortable fit",
+        "Premium quality fabric",
+        "Perfect for special occasions",
+        "Customizable design",
+        "Authentic Indian ethnic wear"
+      ],
+      "care": [
+        "Dry clean recommended",
+        "Store in a cool, dry place",
+        "Iron on low to medium heat",
+        "Avoid direct sunlight when storing",
+        "Handle with care to preserve embellishments"
+      ],
+      "availability": "In Stock",
+      "sizes": ["Free Size"],
+      "colors": ["Whatever you want"],
+      "material": "Silk, Cotton Silk, Georgette (as requested)",
+      "tags": ["traditional", "lehanga", "wedding", "festival", "ethnic", "indian", "special-occasion", "customizable"]
+    },
+    {
       "id": "product-004",
       "name": "Elegant Blouse",
       "category": "blouses",
@@ -90,40 +123,8 @@
       "colors": ["Whatever you want"],
       "material": "Saree material",
       "tags": ["vintage", "Half Saree", "kurta", "casual", "traditional", "Stitched"]
-    },
-    {
-      "id": "product-001",
-      "name": "Kali Lehanga",
-      "category": "lehangas",
-      "description": "A beautiful and elegant Kali Lehanga perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
-      "longDescription": "This stunning Kali Lehanga embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
-      "price": "₹3,499",
-      "images": [
-        "img/product/3.jpg"
-      ],
-      "mainImage": "img/product/3.jpg",
-      "features": [
-        "Traditional craftsmanship",
-        "Modern styling elements",
-        "Comfortable fit",
-        "Premium quality fabric",
-        "Perfect for special occasions",
-        "Customizable design",
-        "Authentic Indian ethnic wear"
-      ],
-      "care": [
-        "Dry clean recommended",
-        "Store in a cool, dry place",
-        "Iron on low to medium heat",
-        "Avoid direct sunlight when storing",
-        "Handle with care to preserve embellishments"
-      ],
-      "availability": "In Stock",
-      "sizes": ["Free Size"],
-      "colors": ["Whatever you want"],
-      "material": "Silk, Cotton Silk, Georgette (as requested)",
-      "tags": ["traditional", "lehanga", "wedding", "festival", "ethnic", "indian", "special-occasion", "customizable"]
     }
+    
   ],
   "categories": [
     {
