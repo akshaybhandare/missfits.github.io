@@ -64,6 +64,36 @@
       "tags": ["formal", "traditional", "princes cut", "silk", "handmade"]
     },
     {
+      "id": "product-003",
+      "name": "Vintage Half Saree",
+      "category": "sarees",
+      "description": "A beautiful vintage-inspired half saree with traditional embroidery work. Perfect for casual and semi-formal occasions.",
+      "longDescription": "Step into timeless elegance with this vintage-inspired half saree that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear. This is not ready-made, only stitching is available. Contact for more details.",
+      "price": "₹3,000",
+      "images": [
+        "img/product/7.jpeg"
+      ],
+      "mainImage": "img/product/7.jpeg",
+      "features": [
+        "Vintage-inspired design",
+        "Traditional embroidery",
+        "Comfortable loose fit",
+        "Breathable cotton fabric",
+        "Versatile styling"
+      ],
+      "care": [
+        "Machine wash cold",
+        "Line dry in shade",
+        "Iron on medium heat",
+        "Do not bleach"
+      ],
+      "availability": "In Stock",
+      "sizes": ["Free Size"],
+      "colors": ["Whatever you want"],
+      "material": "Saree material",
+      "tags": ["vintage", "Half Saree", "kurta", "casual", "traditional", "Stitched"]
+    },
+    {
       "id": "product-004",
       "name": "Baby Dress",
       "category": "dresses",
@@ -93,36 +123,6 @@
       "colors": ["Whatever you want"],
       "material": "Blended Fabric",
       "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
-    },
-    {
-      "id": "product-003",
-      "name": "Vintage Half Saree",
-      "category": "sarees",
-      "description": "A beautiful vintage-inspired half saree with traditional embroidery work. Perfect for casual and semi-formal occasions.",
-      "longDescription": "Step into timeless elegance with this vintage-inspired half saree that beautifully captures the essence of traditional Indian craftsmanship. The intricate embroidery work showcases patterns passed down through generations, each stitch telling a story of cultural heritage. This versatile piece can be dressed up for semi-formal occasions or worn casually for everyday elegance. The comfortable fit and breathable fabric make it perfect for all-day wear. This is not ready-made, only stitching is available. Contact for more details.",
-      "price": "₹3,000",
-      "images": [
-        "img/product/7.jpeg"
-      ],
-      "mainImage": "img/product/7.jpeg",
-      "features": [
-        "Vintage-inspired design",
-        "Traditional embroidery",
-        "Comfortable loose fit",
-        "Breathable cotton fabric",
-        "Versatile styling"
-      ],
-      "care": [
-        "Machine wash cold",
-        "Line dry in shade",
-        "Iron on medium heat",
-        "Do not bleach"
-      ],
-      "availability": "In Stock",
-      "sizes": ["Free Size"],
-      "colors": ["Whatever you want"],
-      "material": "Saree material",
-      "tags": ["vintage", "Half Saree", "kurta", "casual", "traditional", "Stitched"]
     }
     
   ],
