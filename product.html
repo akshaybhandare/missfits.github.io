@@ -304,6 +304,11 @@
                 "description": product.longDescription,
                 "image": product.images && product.images.length > 0 ? 
                     `https://missfitsbymanya.store/${product.images[0]}` : "",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": product.rating || "0",
+                    "reviewCount": product.reviewCount || "0"
+                },
                 "offers": {
                     "@type": "Offer",
                     "priceCurrency": "INR",
