@@ -28,6 +28,23 @@
     <meta property="og:url" content="https://missfitsbymanya.store/product.html" id="ogUrl">
     <meta property="og:type" content="product">
     <meta property="og:image" content="https://missfitsbymanya.store/favicon.svg" id="ogImage">
+    
+    <!-- Schema.org markup for products -->
+    <script type="application/ld+json" id="productSchema">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Product",
+            "name": "",
+            "description": "",
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "INR",
+                "price": "",
+                "availability": "",
+                "url": ""
+            }
+        }
+    </script>
 </head>
 <body>
     <header class="product-header">
@@ -210,6 +227,9 @@
 
             document.getElementById('productContent').innerHTML = productHTML;
 
+            // Update Schema.org data
+            updateSchemaData(product);
+
             // Setup navigation
             setupProductNavigation(productId);
 
@@ -272,6 +292,31 @@
             // Load the product details
             loadProduct();
         });
+
+        // Update Schema.org data
+        function updateSchemaData(product) {
+            if (!product) return;
+
+            const schemaData = {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": product.name,
+                "description": product.longDescription,
+                "image": product.images && product.images.length > 0 ? 
+                    `https://missfitsbymanya.store/${product.images[0]}` : "",
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "INR",
+                    "price": product.price.replace(/[^\d.]/g, ''), // Remove currency symbol and get only the number
+                    "availability": product.availability === "In Stock" ? 
+                        "https://schema.org/InStock" : 
+                        "https://schema.org/OutOfStock",
+                    "url": window.location.href
+                }
+            };
+
+            document.getElementById('productSchema').textContent = JSON.stringify(schemaData, null, 2);
+        }
     </script>
 </body>
 </html>
