@@ -12,6 +12,8 @@ class ProductDatabase {
             const response = await fetch('data/products.json');
             const data = await response.json();
             this.products = data.products || [];
+            // Record the original order from the JSON so we can always restore it
+            this.products.forEach((p, i) => { p._loadIndex = i; });
             this.categories = data.categories || [];
             this.loaded = true;
             return true;
@@ -23,7 +25,8 @@ class ProductDatabase {
 
     // Get all products
     getAllProducts() {
-        return this.products;
+    // Return a stable copy sorted by the original load index (if present)
+    return this.products.slice().sort((a, b) => (a._loadIndex || 0) - (b._loadIndex || 0));
     }
 
     // Get product by ID
@@ -33,7 +36,8 @@ class ProductDatabase {
 
     // Get products by category
     getProductsByCategory(categoryId) {
-        return this.products.filter(product => product.category === categoryId);
+    // Keep the original JSON ordering when filtering by category
+    return this.getAllProducts().filter(product => product.category === categoryId);
     }
 
     // Get all categories
@@ -53,7 +57,8 @@ class ProductDatabase {
 
     // Get featured products (first 3 for preview)
     getFeaturedProducts(limit = 3) {
-        return this.products.slice(0, limit);
+    // Use the stable ordering and take the first `limit` items
+    return this.getAllProducts().slice(0, limit);
     }
 
     // Generate product URL

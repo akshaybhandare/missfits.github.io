@@ -108,6 +108,8 @@ class ProductDatabase {
 
             if (productsResponse && categoriesResponse) {
                 this.products = productsResponse.products || [];
+                // Preserve any ordering information from API by recording load index
+                this.products.forEach((p, i) => { p._loadIndex = i; });
                 this.categories = categoriesResponse.categories || [];
                 this.loaded = true;
                 return true;
@@ -157,6 +159,8 @@ class ProductDatabase {
             const response = await fetch('data/products.json');
             const data = await response.json();
             this.products = data.products || [];
+            // Record original JSON order so we can keep featured/order stable
+            this.products.forEach((p, i) => { p._loadIndex = i; });
             this.categories = data.categories || [];
             this.loaded = true;
             return true;
@@ -183,7 +187,8 @@ class ProductDatabase {
             }
         }
         
-        return this.products;
+    // Return a stable copy sorted by original load index if present
+    return (this.products || []).slice().sort((a, b) => (a._loadIndex || 0) - (b._loadIndex || 0));
     }
 
     // Get product by ID (always works)
@@ -223,7 +228,8 @@ class ProductDatabase {
             }
         }
         
-        return this.products.filter(product => product.category === categoryId);
+    // Keep original ordering when returning category lists
+    return (await this.getAllProducts()).filter(product => product.category === categoryId);
     }
 
     // Get all categories (always works)
@@ -243,7 +249,7 @@ class ProductDatabase {
             }
         }
         
-        return this.categories;
+    return this.categories;
     }
 
     // Search products by name or tags (always works)
@@ -263,7 +269,7 @@ class ProductDatabase {
             }
         }
         
-        return this.localSearchProducts(query);
+    return this.localSearchProducts(query);
     }
 
     // Local search fallback
@@ -278,7 +284,8 @@ class ProductDatabase {
 
     // Get featured products (first 3 for preview)
     getFeaturedProducts(limit = 3) {
-        return this.products.slice(0, limit);
+    // Use stable ordering (JSON/API load index) for featured items
+    return (this.products || []).slice().sort((a, b) => (a._loadIndex || 0) - (b._loadIndex || 0)).slice(0, limit);
     }
 
     // Generate product URL
