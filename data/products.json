@@ -34,7 +34,7 @@
       "tags": ["traditional", "lehanga", "wedding", "festival", "ethnic", "indian", "special-occasion", "customizable"]
     },
     {
-      "id": "product-004",
+      "id": "product-002",
       "name": "Elegant Blouse",
       "category": "blouses",
       "description": "A stunning hand-stitched padded blouse featuring intricate floral. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
@@ -64,7 +64,7 @@
       "tags": ["formal", "traditional", "princes cut", "silk", "handmade"]
     },
     {
-      "id": "product-002",
+      "id": "product-003",
       "name": "Baby Dress",
       "category": "dresses",
       "description": "An adorable baby frock designed to make your little one look even cuter. Perfect for birthdays, photoshoots, and special occasions.",
@@ -95,7 +95,7 @@
       "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
     },
     {
-      "id": "product-003",
+      "id": "product-004",
       "name": "Vintage Half Saree",
       "category": "sarees",
       "description": "A beautiful vintage-inspired half saree with traditional embroidery work. Perfect for casual and semi-formal occasions.",
