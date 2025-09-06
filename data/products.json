@@ -2,6 +2,39 @@
   "products": [
     {
       "id": "product-001",
+      "name": "Halter-Neck Blouse and Kali Lehanga",
+      "category": "lehangas",
+      "description": "A beautiful and elegant Halter-Neck Blouse and Kali Lehanga set perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
+      "longDescription": "This stunning Halter-Neck Blouse and Kali Lehanga set embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
+      "price": "₹3,499",
+      "images": [
+        "img/product/3.jpg"
+      ],
+      "mainImage": "img/product/3.jpg",
+      "features": [
+        "Traditional craftsmanship",
+        "Modern styling elements",
+        "Comfortable fit",
+        "Premium quality fabric",
+        "Perfect for special occasions",
+        "Customizable design",
+        "Authentic Indian ethnic wear"
+      ],
+      "care": [
+        "Dry clean recommended",
+        "Store in a cool, dry place",
+        "Iron on low to medium heat",
+        "Avoid direct sunlight when storing",
+        "Handle with care to preserve embellishments"
+      ],
+      "availability": "In Stock",
+      "sizes": ["Free Size"],
+      "colors": ["Whatever you want"],
+      "material": "Silk, Cotton Silk, Georgette (as requested)",
+      "tags": ["traditional", "lehanga", "wedding", "festival", "ethnic", "indian", "special-occasion", "customizable"]
+    },
+    {
+      "id": "product-002",
       "name": "Elegant Blouse",
       "category": "blouses",
       "description": "A stunning hand-stitched padded blouse. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
@@ -29,37 +62,6 @@
       "colors": ["Material Color"],
       "material": "Cotton",
       "tags": ["formal", "traditional", "princes cut", "silk", "handmade"]
-    },
-    {
-      "id": "product-002",
-      "name": "Baby Dress",
-      "category": "dresses",
-      "description": "An adorable baby frock designed to make your little one look even cuter. Perfect for birthdays, photoshoots, and special occasions.",
-      "longDescription": "This charming baby frock is crafted with soft, breathable fabric to ensure your baby's comfort while looking absolutely delightful. The design features playful patterns and vibrant colors that are perfect for capturing precious moments. The frock is lightweight, easy to wear, and allows for free movement, making it ideal for active little ones. Suitable for all seasons and customizable for a perfect fit.",
-      "price": "₹400",
-      "images": [
-        "img/product/4.jpg",
-        "img/product/6.jpg"
-      ],
-      "mainImage": "img/product/4.jpg",
-      "features": [
-        "Contemporary design",
-        "Unique back detailing",
-        "Perfect fit guarantee",
-        "Versatile styling options",
-        "Premium finishing"
-      ],
-      "care": [
-        "Hand wash or dry clean",
-        "Iron on medium heat",
-        "Store hanging to maintain shape",
-        "Keep away from sharp objects"
-      ],
-      "availability": "In Stock",
-      "sizes": ["Free Size"],
-      "colors": ["Whatever you want"],
-      "material": "Blended Fabric",
-      "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
     },
     {
       "id": "product-003",
@@ -93,37 +95,36 @@
     },
     {
       "id": "product-004",
-      "name": "Halter-Neck Blouse and Kali Lehanga",
-      "category": "lehangas",
-      "description": "A beautiful and elegant Halter-Neck Blouse and Kali Lehanga set perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
-      "longDescription": "This stunning Halter-Neck Blouse and Kali Lehanga set embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
-      "price": "₹3,499",
+      "name": "Baby Dress",
+      "category": "dresses",
+      "description": "An adorable baby frock designed to make your little one look even cuter. Perfect for birthdays, photoshoots, and special occasions.",
+      "longDescription": "This charming baby frock is crafted with soft, breathable fabric to ensure your baby's comfort while looking absolutely delightful. The design features playful patterns and vibrant colors that are perfect for capturing precious moments. The frock is lightweight, easy to wear, and allows for free movement, making it ideal for active little ones. Suitable for all seasons and customizable for a perfect fit.",
+      "price": "₹400",
       "images": [
-        "img/product/3.jpg"
+        "img/product/4.jpg",
+        "img/product/6.jpg"
       ],
-      "mainImage": "img/product/3.jpg",
+      "mainImage": "img/product/4.jpg",
       "features": [
-        "Traditional craftsmanship",
-        "Modern styling elements",
-        "Comfortable fit",
-        "Premium quality fabric",
-        "Perfect for special occasions",
-        "Customizable design",
-        "Authentic Indian ethnic wear"
+        "Contemporary design",
+        "Unique back detailing",
+        "Perfect fit guarantee",
+        "Versatile styling options",
+        "Premium finishing"
       ],
       "care": [
-        "Dry clean recommended",
-        "Store in a cool, dry place",
-        "Iron on low to medium heat",
-        "Avoid direct sunlight when storing",
-        "Handle with care to preserve embellishments"
+        "Hand wash or dry clean",
+        "Iron on medium heat",
+        "Store hanging to maintain shape",
+        "Keep away from sharp objects"
       ],
       "availability": "In Stock",
       "sizes": ["Free Size"],
       "colors": ["Whatever you want"],
-      "material": "Silk, Cotton Silk, Georgette (as requested)",
-      "tags": ["traditional", "lehanga", "wedding", "festival", "ethnic", "indian", "special-occasion", "customizable"]
+      "material": "Blended Fabric",
+      "tags": ["contemporary", "designer", "saree-blouse", "modern", "unique"]
     }
+    
   ],
   "categories": [
     {
