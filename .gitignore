@@ -24,7 +24,8 @@ wheels/
 *.egg
 MANIFEST
 memory/
-script/
+scripts/
+templates/
 specs/
 
 # Environment variables
