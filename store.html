@@ -15,8 +15,8 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Shop our exclusive collection at MISSFITS Boutique. Browse through our handcrafted blouses, traditional wear, and contemporary fashion pieces.">
-    <meta name="keywords" content="MISSFITS store, fashion boutique shop, buy designer blouses, custom fashion, handcrafted clothing, traditional wear shop">
+    <meta name="description" content="Browse our exclusive design patterns at MISSFITS Boutique. Select your favorite style for custom-stitched blouses, traditional wear, and contemporary fashion pieces.">
+    <meta name="keywords" content="MISSFITS custom stitching, design patterns, bespoke fashion, handcrafted clothing, custom tailoring, traditional wear patterns">
     <meta name="author" content="MISSFITS Boutique">
     <meta name="robots" content="index, follow">
     
@@ -83,6 +83,38 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+        }
+
+        .service-banner {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .service-banner h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-banner p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .design-pattern-label {
+            background-color: #d2a6a6;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
 
         h1 {
@@ -217,20 +249,26 @@
             Discover our exquisite collection of handcrafted fashion pieces. Each item is carefully designed and made with attention to detail, bringing you the perfect blend of traditional artistry and contemporary style.
         </p>
 
+        <!-- Service Banner -->
+        <div class="service-banner">
+            <h2>Custom Stitching Service</h2>
+            <p>Browse our exclusive design patterns and let us create your perfect dress. Each piece is hand-stitched to your measurements by our expert tailors. Typical completion time: 2-3 weeks.</p>
+        </div>
+
         <!-- Category Filter -->
         <div class="category-filter" id="categoryFilter">
-            <button class="filter-btn active" data-category="all">All Products</button>
+            <button class="filter-btn active" data-category="all">All Design Patterns</button>
         </div>
 
         <!-- Products Grid -->
         <div class="products-grid" id="productsGrid">
-            <div class="loading">Loading our beautiful collection...</div>
+            <div class="loading">Loading our design pattern collection...</div>
         </div>
     </div>
     </main>
 
     <footer>
-        <p>Contact MISSFITS Boutique for all your fashion needs! Call us at +917975495202. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
+        <p>Contact MISSFITS Boutique to start your custom dress journey! Call us at +917975495202 to discuss your design pattern and measurements. &copy; 2024 MISSFITS Boutique. All Rights Reserved.</p>
     </footer>
 
     <script src="js/products.js"></script>
