@@ -23,6 +23,9 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+memory/
+script/
+specs/
 
 # Environment variables
 .env

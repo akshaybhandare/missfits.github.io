@@ -111,13 +111,14 @@ const ProductUtils = {
                 <div class="product-image">
                     <img src="${product.mainImage}" alt="${product.name}" loading="lazy">
                     <div class="product-overlay">
-                        <span class="view-details">View Details</span>
+                        <span class="view-details">View Design Details</span>
                     </div>
+                    <span class="design-pattern-label">Design Pattern</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">${product.name}</h3>
+                    <h3 class="product-name">${product.name} Pattern</h3>
                     <p class="product-description">${product.description}</p>
-                    <div class="product-price">${this.formatPrice(product.price)}</div>
+                    <p class="service-info">Available for custom stitching</p>
                     <div class="product-category">${product.category}</div>
                 </div>
                 ${linkEnd}

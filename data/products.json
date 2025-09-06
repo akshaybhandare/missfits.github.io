@@ -4,8 +4,8 @@
       "id": "product-001",
       "name": "Elegant Blouse",
       "category": "blouses",
-      "description": "A stunning hand-stitched padded blouse featuring intricate floral. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
-      "longDescription": "This exquisite blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, making it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable. This is not ready-made and is hand-stitched as per order. Material and size can be customized as per request. Price starts from ₹800.",
+      "description": "A stunning hand-stitched padded blouse. Perfect for special occasions and evening wear. Made with premium quality silk fabric and detailed craftsmanship.",
+      "longDescription": "This exquisite padded blouse represents the perfect blend of traditional craftsmanship and contemporary design. Each piece is meticulously hand-stitched by our skilled artisans, featuring delicate floral embroidery that catches the light beautifully. The premium silk fabric drapes elegantly, while the padded design provides enhanced comfort and shape. This makes it ideal for weddings, parties, and special celebrations. The blouse includes traditional elements with a modern twist, ensuring you look stunning while feeling comfortable. This is not ready-made and is hand-stitched as per order. Material and size can be customized as per request. Price starts from ₹800.",
       "price": "Starting from ₹899",
       "images": [
       "img/product/1.jpg"
@@ -93,10 +93,10 @@
     },
     {
       "id": "product-004",
-      "name": "Kali Lehanga",
+      "name": "Halter-Neck Blouse and Kali Lehanga",
       "category": "lehangas",
-      "description": "A beautiful and elegant Kali Lehanga perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
-      "longDescription": "This stunning Kali Lehanga embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
+      "description": "A beautiful and elegant Halter-Neck Blouse and Kali Lehanga set perfect for weddings, festivals, and special occasions. Features traditional craftsmanship with modern styling elements.",
+      "longDescription": "This stunning Halter-Neck Blouse and Kali Lehanga set embodies the perfect fusion of traditional Indian craftsmanship and contemporary design aesthetics. Meticulously crafted with attention to every detail, this lehanga features intricate work that showcases the rich heritage of Indian textile artistry. The flowing silhouette and elegant drape make it ideal for weddings, festivals, cultural celebrations, and special occasions. Each piece is carefully constructed to ensure comfort while maintaining the authentic traditional appeal. The design elements reflect the vibrant culture and timeless beauty of Indian ethnic wear. This piece can be customized as per size and material requirements. Contact for personalization options.",
       "price": "₹3,499",
       "images": [
         "img/product/3.jpg"
